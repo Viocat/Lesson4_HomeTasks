@@ -23,7 +23,7 @@ switch (Number.isNaN(+numOrStr)) {
         break;
     case false:
 
-        switch(numOrStr){
+        switch (numOrStr) {
             case null:
                 console.log('вы отменили');
                 break;
@@ -36,7 +36,7 @@ switch (Number.isNaN(+numOrStr)) {
                         console.log('OK!');
                         console.log(numOrStr);
                         break;
-                } 
+                }
         }
         default:
             break;
