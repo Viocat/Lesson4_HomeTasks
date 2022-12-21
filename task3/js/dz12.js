@@ -58,18 +58,18 @@ function check(info, fieldName) {
     let content = info.trim();
     let fieldType = Number.isNaN(1 * info);
     if (content === null || content === '') {
-        console.log('Жаль что вы не ввели ' + fieldName);
+        alert('Жаль что вы не ввели ' + fieldName);
         content = false;
     } else {
         switch (fieldType) {
             case false:
 
-                fieldName !== yearFieldName ? (console.log('Вы ввели не корректные данные в поле ' + fieldName), content = false) : '';
-                content.length !== 4 && fieldName === yearFieldName ? (console.log('Вы ввели не корректную дату рождения.'), content = false) : content = true;
+                fieldName !== yearFieldName ? (alert('Вы ввели не корректные данные в поле ' + fieldName), content = false) : '';
+                content.length !== 4 && fieldName === yearFieldName ? (alert('Вы ввели не корректную дату рождения.'), content = false) : content = true;
                 break;
 
             default:
-                fieldName === 'год рождения' ? (console.log('Вы ввели не корректные данные в поле ' + fieldName), content = false) : content = true;
+                fieldName === 'год рождения' ? (alert('Вы ввели не корректные данные в поле ' + fieldName), content = false) : content = true;
                 break;
         }
     }
@@ -116,7 +116,7 @@ function sportsCheck(userSport, defaultSports) {
             match = true
             break;
         default:
-            console.log('вы выбрали спорт которого нет в списке');
+            alert('вы выбрали спорт которого нет в списке');
             break;
 
     }
