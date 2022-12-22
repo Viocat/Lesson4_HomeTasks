@@ -24,7 +24,7 @@ if (check(birthYear, yearFieldName)) {
     if (check(city, cityFieldName)) {
         isCapital = cityCheck(city);
 
-        sports = prompt('Выберите ваш любимый вид спорта:\n футбол\n теннис\n хоккей')
+        sports = prompt('Выберите ваш любимый вид спорта:\n Футбол\n Теннис\n Хоккей')
         check(sports, sportsFieldName) ? isChampion = sportsCheck(sports, sportsAndChampions) : '';
 
         switch (isCapital) {
@@ -41,29 +41,35 @@ if (check(birthYear, yearFieldName)) {
             default:
                 switch (isChampion) {
                     case true:
-                        alert(`Вам ${age}\nВы живеnt в городе ${city}\nКруто! Хочешь стать как ${champion}`);
+                        alert(`Вам ${age}\nВы живёте в городе ${city}\nКруто! Хочешь стать как ${champion}`);
                         break;
                     default:
-                        alert(`Вам ${age}\nВы живеnt в городе ${city}`);
+                        alert(`Вам ${age}\nВы живёте в городе ${city}`);
                         break;
                 }
         }
 
     }
+   
 }
 
 
 
 function check(info, fieldName) {
-    let content = info.trim();
+    let content = null;
     let fieldType = Number.isNaN(1 * info);
-    if (content === null || content === '') {
+    if (info === null) {
+        alert('Жаль что вы отменили ввод ' + fieldName);
+        content = false;
+    } else if(info.trim() === ''){
         alert('Жаль что вы не ввели ' + fieldName);
         content = false;
-    } else {
+    }
+    
+    else {
         switch (fieldType) {
             case false:
-
+                content=info;
                 fieldName !== yearFieldName ? (alert('Вы ввели не корректные данные в поле ' + fieldName), content = false) : '';
                 content.length !== 4 && fieldName === yearFieldName ? (alert('Вы ввели не корректную дату рождения.'), content = false) : content = true;
                 break;
@@ -101,7 +107,7 @@ function cityCheck(city) {
 function sportsCheck(userSport, defaultSports) {
     let name = defaultSports;
     let match = false;
-    switch (userSport) {
+    switch (userSport.toLowerCase()) {
         case name[0][0]:
             champion = defaultSports[1][0];
             match = true;
@@ -116,7 +122,7 @@ function sportsCheck(userSport, defaultSports) {
             match = true
             break;
         default:
-            alert('вы выбрали спорт которого нет в списке');
+            // alert('вы выбрали спорт которого нет в списке');
             break;
 
     }
